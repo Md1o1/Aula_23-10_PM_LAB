@@ -20,5 +20,23 @@ public class ProfissionalTest {
     }
 
     // TODO: criar 2 testes unitários (AAA + mensagem na asserção)
-    // TODO: um deles deve testar registrarPagamento
+    @Test 
+    void adicionarAulaAvulsaMaiorQueLimite() {
+        // Arrange
+        Personal personal = new Personal("Marcelo", "P001");
+        // Act — troque/complete conforme a classe escolhida
+        double aulas = personal.addAulaAvulsa(31.0);
+        // Assert
+        assertEquals(0.0, aulas, 0.001);
+    }
+    @Test 
+    void registrarPagamento() {
+        // Arrange
+        Personal personal = new Personal("Juliano", "P002");
+        // Act — troque/complete conforme a classe escolhida
+        personal.addAulaAvulsa(30);
+        personal.registrarPagamento();
+        // Assert
+        assertEquals(5440.5, personal.ultimoPagamento, 0.001);
+    }
 }

@@ -29,8 +29,12 @@ public class Tratamento {
      * @return -1 se o tratamento ainda não foi finalizado
      */
     public int diasAposFinalizacao() {
-        // TODO: se finalizadoEm == null, devolver -1; senão, dias entre finalizadoEm e LocalDate.now()
-        return 0;
+        // se finalizadoEm == null, devolver -1; senão, dias entre finalizadoEm e LocalDate.now()
+        if(finalizadoEm == null){
+            return -1;
+        }else{
+            return (int) ChronoUnit.DAYS.between(finalizadoEm, LocalDate.now());
+        }
     }
 
     public String getNome() {
